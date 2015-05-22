@@ -1,9 +1,10 @@
-package by.zhukova.tariffs;
+package by.zhukova.tariffs.tariff;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-import by.zhukova.tariffs.tariff.BasicTariff;
+import by.zhukova.tariffs.actions.SortTariffsBySubscriptionFee;
 
 public class TariffList {
 	
@@ -12,14 +13,6 @@ public class TariffList {
 	
 	public TariffList(){
 		tariffList =  new ArrayList<BasicTariff>();
-	}
-
-	public List<BasicTariff> getTariffList() {
-		return tariffList;
-	}
-
-	public void setTariffList(List<BasicTariff> tariffList) {
-		this.tariffList = tariffList;
 	}
 	
 	public void addNewTariff(BasicTariff tariff) {
@@ -34,6 +27,16 @@ public class TariffList {
 		for (int i=0; i<tariffList.size(); i++) {
 			System.out.println(tariffList.get(i).toString());
 		}
+	}
+	
+	public void sortBySubscriptionFee(){
+		Collections.sort(tariffList, new SortTariffsBySubscriptionFee());
+		
+	}
+	
+	public BasicTariff getTariffByIndex(int index){
+		BasicTariff tariff = tariffList.get(index);
+		return tariff;
 	}
 	
 

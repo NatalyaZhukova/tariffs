@@ -1,6 +1,6 @@
 package by.zhukova.tariffs.actions;
 
-import by.zhukova.tariffs.TariffList;
+import by.zhukova.tariffs.tariff.TariffList;
 
 public class CalculateParameters {
 	
@@ -9,11 +9,9 @@ public class CalculateParameters {
 		int sumOfUsers=0;
 		
 		for (int i=0; i<list.getListSize(); i++){
-			
-			sumOfUsers+=list.getTariffList().get(i).getNumberOfUsers();
+			sumOfUsers+=list.getTariffByIndex(i).getNumberOfUsers();
 		}
-		
-		
+	
 		return sumOfUsers;
 		
 	}
