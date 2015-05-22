@@ -7,7 +7,12 @@ import by.zhukova.tariffs.tariff.BasicTariff;
 
 public class TariffList {
 	
-	private List<BasicTariff> tariffList = new ArrayList<BasicTariff>();
+	
+	private List<BasicTariff> tariffList;
+	
+	public TariffList(){
+		tariffList =  new ArrayList<BasicTariff>();
+	}
 
 	public List<BasicTariff> getTariffList() {
 		return tariffList;
@@ -19,6 +24,9 @@ public class TariffList {
 	
 	public void addNewTariff(BasicTariff tariff) {
 		tariffList.add(tariff);
+	}
+	public int getListSize() {
+		return tariffList.size();
 	}
 	
 

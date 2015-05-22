@@ -7,6 +7,10 @@ public class Creator {
 	private AbstractFactory abstractFactory;
 	private BasicTariff basicTariff;
 	
+	public BasicTariff getBasicTariff() {
+		return basicTariff;
+	}
+	
 	public void action() {
 		basicTariff = abstractFactory.createTariff();
 	}
