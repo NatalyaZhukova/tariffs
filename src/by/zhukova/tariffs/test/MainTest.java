@@ -1,5 +1,6 @@
 package by.zhukova.tariffs.test;
 import by.zhukova.tariffs.TariffList;
+import by.zhukova.tariffs.actions.CalculateParameters;
 import by.zhukova.tariffs.actions.CreateTariffList;
 
 public class MainTest {
@@ -7,10 +8,9 @@ public class MainTest {
 	public static void main(String[] args) {
 		
 		TariffList list = CreateTariffList.createTariffList();
+		list.print();
 		
-		for (int i=0; i<list.getListSize(); i++) {
-			System.out.println(list.getTariffList().get(i).toString());
-		}
+		System.out.println("Общее количество пользователей: " + CalculateParameters.calculateUsers(list));
 		
 		
 	}

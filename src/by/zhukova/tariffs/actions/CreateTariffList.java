@@ -1,7 +1,5 @@
 package by.zhukova.tariffs.actions;
 
-import java.util.List;
-
 import by.zhukova.tariffs.TariffList;
 import by.zhukova.tariffs.factory.*;
 import by.zhukova.tariffs.tariff.*;

@@ -12,6 +12,7 @@ public class AddDataTariffs {
 		tariff.setInternationalCallPrice((int)(Math.random()*10000+100));
 		tariff.setSmsPrice((int)(Math.random()*1000+10));
 		tariff.setBasicInternetPrice((int)(Math.random()*1000+1000));
+		tariff.setNumberOfUsers((int)(Math.random()*10000+1000));
 		
 		return tariff;
 	}

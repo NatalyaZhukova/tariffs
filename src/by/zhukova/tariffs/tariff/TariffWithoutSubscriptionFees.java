@@ -1,6 +1,6 @@
 package by.zhukova.tariffs.tariff;
 
-public class TariffWithoutSubscriptionFees extends BasicTariff {
+public class TariffWithoutSubscriptionFees implements BasicTariff {
 	
 
 		
@@ -15,12 +15,14 @@ public class TariffWithoutSubscriptionFees extends BasicTariff {
 		
 		protected int basicInternetPrice;
 		
+		protected int numberOfUsers;
+		
 		public TariffWithoutSubscriptionFees() {
 			this.subscriptionFee = 0;
 		}
 		
 		public TariffWithoutSubscriptionFees(String tariffName, int innerCallPrice, int outerCallPrice, 
-				int internationalCallPrice, int smsPrice, int basicInternetPrice) {
+				int internationalCallPrice, int smsPrice, int basicInternetPrice, int numOfUsers) {
 			
 			this.subscriptionFee = 0;
 			this.tariffName = tariffName;
@@ -29,6 +31,7 @@ public class TariffWithoutSubscriptionFees extends BasicTariff {
 			this.internationalCallPrice = internationalCallPrice;
 			this.smsPrice = smsPrice;
 			this.basicInternetPrice = basicInternetPrice;
+			this.numberOfUsers = numOfUsers;
 		
 		}
 		
@@ -84,6 +87,14 @@ public class TariffWithoutSubscriptionFees extends BasicTariff {
 			this.basicInternetPrice = basicInternetPrice;
 		}
 
+		public int getNumberOfUsers() {
+			return numberOfUsers;
+		}
+
+		public void setNumberOfUsers(int numberOfUsers) {
+			this.numberOfUsers = numberOfUsers;
+		}
+
 		public int getInternationalCallPrice() {
 			return internationalCallPrice;
 		}
@@ -94,14 +105,15 @@ public class TariffWithoutSubscriptionFees extends BasicTariff {
 		
 		public String toString() {
 			
-			return tariffName + ":" + '\n' + "Стоимость минуты в своей сети: " + innerCallPrice + '\n' +
+			return tariffName + ":" + '\n' +
+					"Количество абонентов: " + numberOfUsers + '\n'
+					+ "Стоимость минуты в своей сети: " + innerCallPrice + '\n' +
 					"Стоимость минуты в другие сети: " + outerCallPrice + '\n' +
 					"Стоимость минуты при звонке за границу: " + internationalCallPrice + '\n' +
 					"Стоимость СМС: " + smsPrice + '\n' +
 					"Стоимость 1 мб интернет-трафика: " + basicInternetPrice +'\n' +
 					"Абонентская плата в месяц: " + subscriptionFee;
 		}
-
 
 		@Override
 		public int hashCode() {
@@ -110,6 +122,7 @@ public class TariffWithoutSubscriptionFees extends BasicTariff {
 			result = prime * result + basicInternetPrice;
 			result = prime * result + innerCallPrice;
 			result = prime * result + internationalCallPrice;
+			result = prime * result + numberOfUsers;
 			result = prime * result + outerCallPrice;
 			result = prime * result + smsPrice;
 			result = prime * result + subscriptionFee;
@@ -117,7 +130,6 @@ public class TariffWithoutSubscriptionFees extends BasicTariff {
 					+ ((tariffName == null) ? 0 : tariffName.hashCode());
 			return result;
 		}
-
 
 		@Override
 		public boolean equals(Object obj) {
@@ -140,6 +152,9 @@ public class TariffWithoutSubscriptionFees extends BasicTariff {
 			if (internationalCallPrice != other.internationalCallPrice) {
 				return false;
 			}
+			if (numberOfUsers != other.numberOfUsers) {
+				return false;
+			}
 			if (outerCallPrice != other.outerCallPrice) {
 				return false;
 			}
@@ -158,6 +173,9 @@ public class TariffWithoutSubscriptionFees extends BasicTariff {
 			}
 			return true;
 		}
+
+
+	
 		
 		
 

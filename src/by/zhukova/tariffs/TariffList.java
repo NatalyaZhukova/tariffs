@@ -29,5 +29,12 @@ public class TariffList {
 		return tariffList.size();
 	}
 	
+	public void print(){
+		
+		for (int i=0; i<tariffList.size(); i++) {
+			System.out.println(tariffList.get(i).toString());
+		}
+	}
+	
 
 }

@@ -12,10 +12,10 @@ public class TariffWithSubscriptionFees extends TariffWithoutSubscriptionFees {
 	}
 	
 	public TariffWithSubscriptionFees(String tariffName, int subscriptionFee, int innerCallPrice, int outerCallPrice, 
-			int internationalCallPrice, int smsPrice, int basicInternetPrice, int includedInnerCalls, int includedOuterCalls,
+			int internationalCallPrice, int smsPrice, int basicInternetPrice, int numOfUsers, int includedInnerCalls, int includedOuterCalls,
 			int includedSMS, int includedTraffic) {
 		
-		super(tariffName,  innerCallPrice,  outerCallPrice,  internationalCallPrice,  smsPrice,  basicInternetPrice);
+		super(tariffName,  innerCallPrice,  outerCallPrice,  internationalCallPrice,  smsPrice,  basicInternetPrice, numOfUsers);
 		
 		this.subscriptionFee = subscriptionFee;
 		this.includedInnerCalls=includedInnerCalls;
