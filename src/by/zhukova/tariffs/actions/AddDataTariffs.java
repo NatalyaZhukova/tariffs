@@ -20,6 +20,7 @@ public class AddDataTariffs {
 	public TariffWithSubscriptionFees addDataWithFees(TariffWithSubscriptionFees tariff) {
 		addDataWithoutFees(tariff);
 		
+		tariff.setSubscriptionFee((int)(Math.random()*100000+10000));
 		tariff.setIncludedInnerCalls((int)(Math.random()*1000));
 		tariff.setIncludedOuterCalls((int)(Math.random()*1000));
 		tariff.setIncludedSMS((int)(Math.random()*1000));
