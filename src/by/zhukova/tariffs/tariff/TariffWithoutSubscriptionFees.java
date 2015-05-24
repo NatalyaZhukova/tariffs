@@ -1,5 +1,7 @@
 package by.zhukova.tariffs.tariff;
 
+import by.zhukova.tariffs.exception.LogicalException;
+
 public class TariffWithoutSubscriptionFees implements BasicTariff {
 	
 
@@ -32,7 +34,6 @@ public class TariffWithoutSubscriptionFees implements BasicTariff {
 			this.smsPrice = smsPrice;
 			this.basicInternetPrice = basicInternetPrice;
 			this.numberOfUsers = numOfUsers;
-		
 		}
 		
 		
@@ -48,24 +49,39 @@ public class TariffWithoutSubscriptionFees implements BasicTariff {
 		public int getSubscriptionFee() {
 			return subscriptionFee;
 		}
-		public void setSubscriptionFee(int subscriptionFee) {
-			this.subscriptionFee = subscriptionFee;
+		public void setSubscriptionFee(int subscriptionFee) throws LogicalException {
+			if (subscriptionFee<0) {
+				throw new LogicalException(LogicalException.CANNOT_BE_NEGATIVE);
+			}
+			else {
+				this.subscriptionFee = subscriptionFee;
+			}
 		}
 
 		public int getInnerCallPrice() {
 			return innerCallPrice;
 		}
 
-		public void setInnerCallPrice(int innerCallPrice) {
-			this.innerCallPrice = innerCallPrice;
+		public void setInnerCallPrice(int innerCallPrice) throws LogicalException {
+			if (innerCallPrice<0) {
+				throw new LogicalException(LogicalException.CANNOT_BE_NEGATIVE);
+			}
+			else {
+				this.innerCallPrice = innerCallPrice;
+			}
 		}
 		
 		public int getOuterCallPrice() {
 			return outerCallPrice;
 		}
 
-		public void setOuterCallPrice(int outerCallPrice) {
-			this.outerCallPrice = outerCallPrice;
+		public void setOuterCallPrice(int outerCallPrice) throws LogicalException {
+			if (outerCallPrice<0) {
+				throw new LogicalException(LogicalException.CANNOT_BE_NEGATIVE);
+			}
+			else {
+				this.outerCallPrice = outerCallPrice;
+			}
 		}
 
 		
@@ -73,8 +89,13 @@ public class TariffWithoutSubscriptionFees implements BasicTariff {
 			return smsPrice;
 		}
 		
-		public void setSmsPrice(int smsPrice) {
+		public void setSmsPrice(int smsPrice) throws LogicalException {
+			if (smsPrice<0){
+				throw new LogicalException(LogicalException.CANNOT_BE_NEGATIVE);
+			}
+			else {
 			this.smsPrice = smsPrice;
+			}
 		}
 
 		
@@ -83,24 +104,40 @@ public class TariffWithoutSubscriptionFees implements BasicTariff {
 		}
 
 		
-		public void setBasicInternetPrice(int basicInternetPrice) {
+		public void setBasicInternetPrice(int basicInternetPrice) throws LogicalException {
+			if (basicInternetPrice<0){
+				throw new LogicalException(LogicalException.CANNOT_BE_NEGATIVE);
+			}
+			else {
 			this.basicInternetPrice = basicInternetPrice;
+			}
+		
 		}
 
 		public int getNumberOfUsers() {
 			return numberOfUsers;
 		}
 
-		public void setNumberOfUsers(int numberOfUsers) {
+		public void setNumberOfUsers(int numberOfUsers) throws LogicalException {
+			if (numberOfUsers<0){
+				throw new LogicalException(LogicalException.CANNOT_BE_NEGATIVE);
+			}
+			else {
 			this.numberOfUsers = numberOfUsers;
+			}
 		}
 
 		public int getInternationalCallPrice() {
 			return internationalCallPrice;
 		}
 
-		public void setInternationalCallPrice(int internationalCallPrice) {
+		public void setInternationalCallPrice(int internationalCallPrice) throws LogicalException {
+			if (internationalCallPrice<0) {
+				throw new LogicalException(LogicalException.CANNOT_BE_NEGATIVE);
+			}
+			else {
 			this.internationalCallPrice = internationalCallPrice;
+			}
 		}
 		
 		public String toString() {

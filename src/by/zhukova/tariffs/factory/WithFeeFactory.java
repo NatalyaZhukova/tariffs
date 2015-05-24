@@ -1,6 +1,6 @@
 package by.zhukova.tariffs.factory;
 
-import by.zhukova.tariffs.actions.AddDataTariffs;
+import by.zhukova.tariffs.action.AddDataTariffs;
 import by.zhukova.tariffs.tariff.*;
 
 public class WithFeeFactory implements AbstractFactory {

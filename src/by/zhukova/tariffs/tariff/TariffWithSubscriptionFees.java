@@ -1,5 +1,7 @@
 package by.zhukova.tariffs.tariff;
 
+import by.zhukova.tariffs.exception.LogicalException;
+
 public class TariffWithSubscriptionFees extends TariffWithoutSubscriptionFees {
 	
 	private int includedInnerCalls;
@@ -27,26 +29,46 @@ public class TariffWithSubscriptionFees extends TariffWithoutSubscriptionFees {
 	public int getIncludedInnerCalls() {
 		return includedInnerCalls;
 	}
-	public void setIncludedInnerCalls(int includedInnerCalls) {
-		this.includedInnerCalls = includedInnerCalls;
+	public void setIncludedInnerCalls(int includedInnerCalls) throws LogicalException {
+		if (includedInnerCalls<0){
+			throw new LogicalException(LogicalException.CANNOT_BE_NEGATIVE);
+		}
+		else {
+			this.includedInnerCalls = includedInnerCalls;
+		}
 	}
 	public int getIncludedOuterCalls() {
 		return includedOuterCalls;
 	}
-	public void setIncludedOuterCalls(int includedOuterCalls) {
-		this.includedOuterCalls = includedOuterCalls;
+	public void setIncludedOuterCalls(int includedOuterCalls) throws LogicalException {
+		if (includedOuterCalls<0) {
+			throw new LogicalException(LogicalException.CANNOT_BE_NEGATIVE);
+		}
+		else {
+			this.includedOuterCalls = includedOuterCalls;
+		}
 	}
 	public int getIncludedSMS() {
 		return includedSMS;
 	}
-	public void setIncludedSMS(int includedSMS) {
-		this.includedSMS = includedSMS;
+	public void setIncludedSMS(int includedSMS) throws LogicalException {
+		if (includedSMS<0){
+			throw new LogicalException(LogicalException.CANNOT_BE_NEGATIVE);
+		}
+		else {
+			this.includedSMS = includedSMS;
+		}
 	}
 	public int getIncludedTraffic() {
 		return includedTraffic;
 	}
-	public void setIncludedTraffic(int includedTraffic) {
-		this.includedTraffic = includedTraffic;
+	public void setIncludedTraffic(int includedTraffic) throws LogicalException {
+		if (includedTraffic<0) {
+			throw new LogicalException(LogicalException.CANNOT_BE_NEGATIVE);
+		}
+		else {
+			this.includedTraffic = includedTraffic;
+		}
 	}
 
 	public String toString() {

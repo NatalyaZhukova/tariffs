@@ -2,9 +2,8 @@ package by.zhukova.tariffs.tariff;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
-
-import by.zhukova.tariffs.actions.SortTariffsBySubscriptionFee;
 
 public class TariffList {
 	
@@ -23,14 +22,16 @@ public class TariffList {
 	}
 	
 	public void print(){
-		
+		 
 		for (int i=0; i<tariffList.size(); i++) {
+			
 			System.out.println(tariffList.get(i).toString());
+			System.out.println("----------------");
 		}
 	}
 	
-	public void sortBySubscriptionFee(){
-		Collections.sort(tariffList, new SortTariffsBySubscriptionFee());
+	public void sortBy(Comparator<BasicTariff> comp){
+		Collections.sort(tariffList, comp);
 		
 	}
 	

@@ -1,4 +1,4 @@
-package by.zhukova.tariffs.actions;
+package by.zhukova.tariffs.action;
 
 import by.zhukova.tariffs.factory.*;
 import by.zhukova.tariffs.tariff.*;

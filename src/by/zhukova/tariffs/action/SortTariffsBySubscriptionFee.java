@@ -1,4 +1,4 @@
-package by.zhukova.tariffs.actions;
+package by.zhukova.tariffs.action;
 
 import java.util.Comparator;
 import by.zhukova.tariffs.tariff.BasicTariff;
