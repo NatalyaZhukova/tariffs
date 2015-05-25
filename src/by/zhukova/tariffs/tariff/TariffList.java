@@ -21,20 +21,6 @@ public class TariffList {
 		return tariffList.size();
 	}
 	
-	public void print(){
-		 
-		for (int i=0; i<tariffList.size(); i++) {
-			
-			System.out.println(tariffList.get(i).toString());
-			System.out.println("----------------");
-		}
-	}
-	
-	public void sortBy(Comparator<BasicTariff> comp){
-		Collections.sort(tariffList, comp);
-		
-	}
-	
 	public BasicTariff getTariffByIndex(int index){
 		BasicTariff tariff = tariffList.get(index);
 		return tariff;

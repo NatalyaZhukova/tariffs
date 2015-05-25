@@ -1,10 +1,18 @@
-package by.zhukova.tariffs.test;
+package by.zhukova.tariffs.run;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 import by.zhukova.tariffs.action.*;
 import by.zhukova.tariffs.tariff.TariffList;
 
 
-public class MainTest {
+public class Runner {
+	
+	static {
+		PropertyConfigurator.configure("log4j.properties");
+	}
+	static Logger logger = Logger.getLogger(Runner.class);
 
 	public static void main(String[] args) {
 		

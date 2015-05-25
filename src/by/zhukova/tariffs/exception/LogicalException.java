@@ -2,7 +2,7 @@ package by.zhukova.tariffs.exception;
 
 public class LogicalException extends Exception {
 	
-	public static final String CANNOT_BE_NEGATIVE = "Value can't be negative";
+	
 
 	public LogicalException() {
 		
