@@ -4,17 +4,17 @@ import by.zhukova.tariffs.exception.LogicalException;
 
 public abstract class BasicTariff {
 	
-	protected String tariffName;
-	protected String tariffId;
-	protected int subscriptionFee;
+	private String tariffName;
+	private String tariffId;
+	private int subscriptionFee;
 	
-	protected int innerCallPrice;
-	protected int outerCallPrice;
-	protected int internationalCallPrice;
+	private int innerCallPrice;
+	private int outerCallPrice;
+	private int internationalCallPrice;
 	
-	protected int smsPrice;
-	protected int basicInternetPrice;
-	protected int numberOfUsers;
+	private int smsPrice;
+	private int basicInternetPrice;
+	private int numberOfUsers;
 	
 	public BasicTariff() {
 		
