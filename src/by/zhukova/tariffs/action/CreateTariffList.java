@@ -13,7 +13,7 @@ public  class CreateTariffList {
 			AddDataTariffs addData = new AddDataTariffs();
 			
 			if (i%3==0) {
-				creator.setAbstractFactory(new WithoutFeeFactory());
+				creator.setAbstractFactory(new WithIncludedServicesFactory());
 				creator.action();
 				TariffWithoutSubscriptionFees tariff = (TariffWithoutSubscriptionFees)creator.getBasicTariff();
 				addData.addDataWithoutFees(tariff);

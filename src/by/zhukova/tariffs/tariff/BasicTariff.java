@@ -3,27 +3,27 @@ package by.zhukova.tariffs.tariff;
 import by.zhukova.tariffs.exception.LogicalException;
 
 public abstract class BasicTariff {
-	
+
 	private String tariffName;
 	private String tariffId;
 	private int subscriptionFee;
-	
+
 	private int innerCallPrice;
 	private int outerCallPrice;
 	private int internationalCallPrice;
-	
+
 	private int smsPrice;
 	private int basicInternetPrice;
 	private int numberOfUsers;
-	
+
 	public BasicTariff() {
-		
+
 	}
-	
+
 	public BasicTariff(String tariffName, String tariffId, int subscriptionFee,
 			int innerCallPrice, int outerCallPrice, int internationalCallPrice,
 			int smsPrice, int basicInternetPrice, int numberOfUsers) {
-		
+
 		this.tariffName = tariffName;
 		this.tariffId = tariffId;
 		this.subscriptionFee = subscriptionFee;
@@ -56,10 +56,9 @@ public abstract class BasicTariff {
 	}
 
 	public void setMonthlyFee(int subscriptionFee) throws LogicalException {
-		if (subscriptionFee>=0){
-		this.subscriptionFee = subscriptionFee;
-		}
-		else {
+		if (subscriptionFee >= 0) {
+			this.subscriptionFee = subscriptionFee;
+		} else {
 			throw new LogicalException("Value can't be negative");
 		}
 	}
@@ -69,10 +68,9 @@ public abstract class BasicTariff {
 	}
 
 	public void setInnerCallPrice(int innerCallPrice) throws LogicalException {
-		if (innerCallPrice>=0) {
-		this.innerCallPrice = innerCallPrice;
-		}
-		else {
+		if (innerCallPrice >= 0) {
+			this.innerCallPrice = innerCallPrice;
+		} else {
 			throw new LogicalException("Value can't be negative");
 		}
 	}
@@ -82,10 +80,9 @@ public abstract class BasicTariff {
 	}
 
 	public void setOuterCallPrice(int outerCallPrice) throws LogicalException {
-		if (outerCallPrice>=0){
-		this.outerCallPrice = outerCallPrice;
-		}
-		else {
+		if (outerCallPrice >= 0) {
+			this.outerCallPrice = outerCallPrice;
+		} else {
 			throw new LogicalException("Value can't be negative");
 		}
 	}
@@ -94,11 +91,11 @@ public abstract class BasicTariff {
 		return internationalCallPrice;
 	}
 
-	public void setInternationalCallPrice(int internationalCallPrice) throws LogicalException {
-		if (internationalCallPrice>=0){
-		this.internationalCallPrice = internationalCallPrice;
-		}
-		else {
+	public void setInternationalCallPrice(int internationalCallPrice)
+			throws LogicalException {
+		if (internationalCallPrice >= 0) {
+			this.internationalCallPrice = internationalCallPrice;
+		} else {
 			throw new LogicalException("Value can't be negative");
 		}
 	}
@@ -108,10 +105,9 @@ public abstract class BasicTariff {
 	}
 
 	public void setSmsPrice(int smsPrice) throws LogicalException {
-		if (smsPrice>=0){
-		this.smsPrice = smsPrice;
-		}
-		else {
+		if (smsPrice >= 0) {
+			this.smsPrice = smsPrice;
+		} else {
 			throw new LogicalException("Value can't be negative");
 		}
 	}
@@ -120,11 +116,11 @@ public abstract class BasicTariff {
 		return basicInternetPrice;
 	}
 
-	public void setBasicInternetPrice(int basicInternetPrice) throws LogicalException {
-		if (basicInternetPrice>=0) {
-		this.basicInternetPrice = basicInternetPrice;
-		}
-		else {
+	public void setBasicInternetPrice(int basicInternetPrice)
+			throws LogicalException {
+		if (basicInternetPrice >= 0) {
+			this.basicInternetPrice = basicInternetPrice;
+		} else {
 			throw new LogicalException("Value can't be negative");
 		}
 	}
@@ -134,47 +130,33 @@ public abstract class BasicTariff {
 	}
 
 	public void setNumberOfUsers(int numberOfUsers) throws LogicalException {
-		if (numberOfUsers>=0){
-		this.numberOfUsers = numberOfUsers;
-		}
-		else {
+		if (numberOfUsers >= 0) {
+			this.numberOfUsers = numberOfUsers;
+		} else {
 			throw new LogicalException("Value can't be negative");
 		}
 	}
 
 	public String toString() {
-		
+
 		StringBuilder st = new StringBuilder();
-		st.append("ID of tariff: ");
-		st.append(tariffId);
-		st.append('\n');
-		st.append("Name of tariff: ");
-		st.append(tariffName);
-		st.append('\n');
-		st.append("Subscription fee: ");
-		st.append(subscriptionFee);
-		st.append('\n');
-		st.append("Price of inner calls (in minute): ");
-		st.append(innerCallPrice);
-		st.append('\n');
-		st.append("Price of outer calls (in minute): ");
-		st.append(outerCallPrice);
-		st.append('\n');
-		st.append("Price of international calls (in minute): ");
-		st.append(internationalCallPrice);
-		st.append('\n');
-		st.append("Price of SMS: ");
-		st.append(smsPrice);
-		st.append('\n');
-		st.append("Price of internet traffic (1 mb): ");
-		st.append(basicInternetPrice);
-		st.append('\n');
-		st.append("Number of tariff's users: ");
-		st.append(numberOfUsers);
-		st.append('\n');
-		
+		st.append("ID of tariff: ").append(tariffId).append('\n')
+				.append("Name of tariff: ").append(tariffName).append('\n')
+				.append("Subscription fee: ").append(subscriptionFee)
+				.append('\n').append("Price of inner calls (in minute): ")
+				.append(innerCallPrice).append('\n')
+				.append("Price of outer calls (in minute): ")
+				.append(outerCallPrice).append('\n')
+				.append("Price of international calls (in minute): ")
+				.append(internationalCallPrice).append('\n')
+				.append("Price of SMS: ").append(smsPrice).append('\n')
+				.append("Price of internet traffic (1 mb): ")
+				.append(basicInternetPrice).append('\n')
+				.append("Number of tariff's users: ").append(numberOfUsers)
+				.append('\n');
+
 		return st.toString();
-		
+
 	}
 
 	@Override
@@ -244,14 +226,5 @@ public abstract class BasicTariff {
 		}
 		return true;
 	}
-	
-	
-	
-	
-	
-	
 
-	
 }
-	
-

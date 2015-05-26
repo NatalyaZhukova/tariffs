@@ -3,9 +3,10 @@ package by.zhukova.tariffs.tariff;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 
-public class TariffList {
+public class TariffList  {
 	
 	
 	private List<BasicTariff> tariffList;
@@ -25,6 +26,7 @@ public class TariffList {
 		BasicTariff tariff = tariffList.get(index);
 		return tariff;
 	}
+
 	
 
 }
