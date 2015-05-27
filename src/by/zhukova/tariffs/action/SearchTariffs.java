@@ -94,8 +94,8 @@ public class SearchTariffs {
 		
 		for (int i=0; i<list.getListSize(); i++) {
 			
-			if (list.getTariffByIndex(i) instanceof TariffWithSubscriptionFees) {
-				TariffWithSubscriptionFees tariff = (TariffWithSubscriptionFees)list.getTariffByIndex(i);
+			if (list.getTariffByIndex(i) instanceof TariffWithIncludedServices) {
+				TariffWithIncludedServices tariff = (TariffWithIncludedServices)list.getTariffByIndex(i);
 				int includedInnerCalls = tariff.getIncludedInnerCalls();
 				
 				if ((includedInnerCalls>=minCalls) && (includedInnerCalls<=maxCalls)) {
@@ -112,8 +112,8 @@ public class SearchTariffs {
 		
 		for (int i=0; i<list.getListSize(); i++) {
 			
-			if (list.getTariffByIndex(i) instanceof TariffWithSubscriptionFees) {
-				TariffWithSubscriptionFees tariff = (TariffWithSubscriptionFees)list.getTariffByIndex(i);
+			if (list.getTariffByIndex(i) instanceof TariffWithIncludedServices) {
+				TariffWithIncludedServices tariff = (TariffWithIncludedServices)list.getTariffByIndex(i);
 				int includedOuterCalls = tariff.getIncludedOuterCalls();
 				
 				if ((includedOuterCalls>=minCalls) && (includedOuterCalls<=maxCalls)) {
@@ -130,8 +130,8 @@ public class SearchTariffs {
 		
 		for (int i=0; i<list.getListSize(); i++) {
 			
-			if (list.getTariffByIndex(i) instanceof TariffWithSubscriptionFees) {
-				TariffWithSubscriptionFees tariff = (TariffWithSubscriptionFees)list.getTariffByIndex(i);
+			if (list.getTariffByIndex(i) instanceof TariffWithIncludedServices) {
+				TariffWithIncludedServices tariff = (TariffWithIncludedServices)list.getTariffByIndex(i);
 				int includedSMS = tariff.getIncludedSMS();
 				
 				if ((includedSMS>=minSMS) && (includedSMS<=maxSMS)) {
@@ -148,8 +148,8 @@ public class SearchTariffs {
 		
 		for (int i=0; i<list.getListSize(); i++) {
 			
-			if (list.getTariffByIndex(i) instanceof TariffWithSubscriptionFees) {
-				TariffWithSubscriptionFees tariff = (TariffWithSubscriptionFees)list.getTariffByIndex(i);
+			if (list.getTariffByIndex(i) instanceof TariffWithIncludedServices) {
+				TariffWithIncludedServices tariff = (TariffWithIncludedServices)list.getTariffByIndex(i);
 				int includedTraffic = tariff.getIncludedTraffic();
 				
 				if ((includedTraffic>=minTraffic) && (includedTraffic<=maxTraffic)) {
