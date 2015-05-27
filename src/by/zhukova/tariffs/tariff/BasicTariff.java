@@ -55,7 +55,7 @@ public abstract class BasicTariff {
 		return subscriptionFee;
 	}
 
-	public void setMonthlyFee(int subscriptionFee) throws LogicalException {
+	public void setSubscriptionFee(int subscriptionFee) throws LogicalException {
 		if (subscriptionFee >= 0) {
 			this.subscriptionFee = subscriptionFee;
 		} else {
