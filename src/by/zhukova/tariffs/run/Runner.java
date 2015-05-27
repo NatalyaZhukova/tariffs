@@ -18,7 +18,7 @@ public class Runner {
 	public static void main(String[] args) {
 		
 		TariffList list = CreateTariffList.createTariffList();
-		System.out.println("Общее количество пользователей: " + TariffsActions.calculateUsers(list));
+		System.out.println("общее количество пользователей: " + TariffsActions.calculateUsers(list));
 		System.out.println(list.toString());
 		System.out.println("---------------------------");
 		TariffList sortedList = TariffsActions.sortTariffsBy(list, new SubscriptionFeeComparator());
