@@ -159,6 +159,59 @@ public class SearchTariffs {
 		}
 		return searchResults;	
 	}
-
+	public TariffList searchByIncludedInternationalCalls(TariffList list, int minCalls, int maxCalls) {
+		
+		TariffList searchResults = new TariffList();
+		
+		for (int i=0; i<list.getListSize(); i++) {
+			
+			if (list.getTariffByIndex(i) instanceof InternationalTariff) {
+				InternationalTariff tariff = (InternationalTariff)list.getTariffByIndex(i);
+				int includedInternationalCalls = tariff.getIncludedInternationalCalls();
+				
+				if ((includedInternationalCalls>=minCalls) && (includedInternationalCalls<=maxCalls)) {
+					searchResults.addNewTariff(list.getTariffByIndex(i));
+				}
+			}
+		}
+		return searchResults;	
+	}
+	
+	public TariffList searchByIncludedCorporateCalls(TariffList list, int minCalls, int maxCalls) {
+		
+		TariffList searchResults = new TariffList();
+		
+		for (int i=0; i<list.getListSize(); i++) {
+			
+			if (list.getTariffByIndex(i) instanceof CorporateTariff) {
+				CorporateTariff tariff = (CorporateTariff)list.getTariffByIndex(i);
+				int includedCorporateCalls = tariff.getIncludedCorporateCalls();
+				
+				if ((includedCorporateCalls>=minCalls) && (includedCorporateCalls<=maxCalls)) {
+					searchResults.addNewTariff(list.getTariffByIndex(i));
+				}
+			}
+		}
+		return searchResults;	
+	}
+		
+	public TariffList searchByCorporateCallPrice(TariffList list, int minPrice, int maxPrice) {
+		
+		TariffList searchResults = new TariffList();
+		
+		for (int i=0; i<list.getListSize(); i++) {
+			
+			if (list.getTariffByIndex(i) instanceof CorporateTariff) {
+				CorporateTariff tariff = (CorporateTariff)list.getTariffByIndex(i);
+				int corporateCallPrice = tariff.getCorporateCallPrice();
+				
+				if ((corporateCallPrice>=minPrice) && (corporateCallPrice<=maxPrice)) {
+					searchResults.addNewTariff(list.getTariffByIndex(i));
+				}
+			}
+		}
+		return searchResults;	
+	}
+	
 
 }
