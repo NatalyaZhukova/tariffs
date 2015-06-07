@@ -1,0 +1,65 @@
+<?xml version = "1.0" encoding="UTF-8"?>
+
+	<without-fee-tariff id="0001">
+	<name>Легко сказать</name>
+	<in-call-price>399</in-call-price>
+	<out-call-price>599</out-call-price>
+	<int-call-price>2000</int-call-price>
+	<sms-price>200</sms-price>
+	<internet-price>1000</internet-price>
+	<num-of-users>7420</num-of-users>
+	<subscr-fee>0</subscr-fee>
+	<has-inc-services>false</has-inc-services>
+	</without-fee-tariff>
+	
+	<with-fee-tariff id="0002">
+	<name>Отличный</name>
+	<in-call-price>99</in-call-price>
+	<out-call-price>599</out-call-price>
+	<int-call-price>2000</int-call-price>
+	<sms-price>200</sms-price>
+	<internet-price>1000</internet-price>
+	<num-of-users>6530</num-of-users>
+	<subscr-fee>49000</subscr-fee>
+	<inc-in-calls>100</inc-in-calls>
+	<inc-out-calls>0</inc-out-calls>
+	<inc-sms>0</inc-sms>
+	<inc-traffic>50</inc-traffic>
+	</with-fee-tariff>
+	
+	
+	<international-tariff id="0003">
+	
+	<name>Международный</name>
+	<in-call-price>200</in-call-price>
+	<out-call-price>650</out-call-price>
+	<int-call-price>1500</int-call-price>
+	<sms-price>200</sms-price>
+	<internet-price>2000</internet-price>
+	<num-of-users>490</num-of-users>
+	<subscr-fee>65900</subscr-fee>
+	<inc-in-calls>100</inc-in-calls>
+	<inc-out-calls>0</inc-out-calls>
+	<inc-sms>100</inc-sms>
+	<inc-traffic>0</inc-traffic>
+	<inc-int-calls>100</inc-int-calls>
+	</international-tariff>
+	
+	<corporate-tariff id="0004">
+	<name>Корпоративный</name>
+	<in-call-price>200</in-call-price>
+	<out-call-price>600</out-call-price>
+	<int-call-price>1000</int-call-price>
+	<sms-price>200</sms-price>
+	<internet-price>2000</internet-price>
+	<num-of-users>5605</num-of-users>
+	<subscr-fee>70000</subscr-fee>
+	<inc-in-calls>100</inc-in-calls>
+	<inc-out-calls>100</inc-out-calls>
+	<inc-sms>100</inc-sms>
+	<inc-traffic>100</inc-traffic>
+	<corp-call-price>50</corp-call-price>
+	<inc-corp-calls>500</inc-corp-calls>
+	</corporate-tariff>
+	
+</tariffList>

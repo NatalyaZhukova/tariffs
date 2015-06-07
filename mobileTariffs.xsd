@@ -1,0 +1,98 @@
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" version="1.0"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="tariffList" type="TariffList" />
+	<xs:element name="tariff" type="BasicTariff" abstract="true" />
+	<xs:element name="without-fee-tariff" type="WithoutFee"
+		substitutionGroup="tariff" />
+	<xs:element name="with-fee-tariff" type="WithFee"
+		substitutionGroup="tariff" />
+	<xs:element name="international-tariff" type="InternationalTariff"
+		substitutionGroup="tariff" />
+	<xs:element name="corporate-tariff" type="CorporateTariff"
+		substitutionGroup="tariff" />
+
+	<xs:complexType name="TariffList">
+		<xs:sequence>
+			<xs:element ref="tariff" minOccurs="1" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="BasicTariff">
+		<xs:sequence>
+			<xs:element name="name"> 
+			<xs:simpleType>
+			<xs:restriction base="xs:string">
+			<xs:pattern value="[\\w\\p{Blank}+]{5, 100}" />
+			</xs:restriction>
+			</xs:simpleType>
+			</xs:element>
+			<xs:element name="in-call-price" type="xs:positiveInteger" />
+			<xs:element name="out-call-price" type="xs:positiveInteger" />
+			<xs:element name="int-call-price" type="xs:positiveInteger" />
+			<xs:element name="sms-price" type="xs:positiveInteger" />
+			<xs:element name="internet-price" type="xs:positiveInteger" />
+			<xs:element name="num-of-users" type="xs:positiveInteger" />
+			<xs:element name="subscr-fee" type="notNegativeInteger" />
+		</xs:sequence>
+		<xs:attribute name="id" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:pattern value="[0-9]{4}" />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="WithoutFee">
+		<xs:complexContent>
+			<xs:extension base="BasicTariff">
+				<xs:sequence>
+					<xs:element name="has-inc-services" type="xs:boolean" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="WithFee">
+		<xs:complexContent>
+			<xs:extension base="BasicTariff">
+				<xs:sequence>
+					<xs:element name="inc-in-calls" type="notNegativeInteger" />
+					<xs:element name="inc-out-calls" type="notNegativeInteger" />
+					<xs:element name="inc-sms" type="notNegativeInteger" />
+					<xs:element name="inc-traffic" type="notNegativeInteger" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="CorporateTariff">
+		<xs:complexContent>
+			<xs:extension base="WithFee">
+				<xs:sequence>
+					<xs:element name="corp-call-price" type="xs:positiveInteger" />
+					<xs:element name="inc-corp-calls" type="notNegativeInteger" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="InternationalTariff">
+		<xs:complexContent>
+			<xs:extension base="WithFee">
+				<xs:sequence>
+					<xs:element name="inc-int-calls" type="notNegativeInteger" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:simpleType name="notNegativeInteger">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="0" />
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>
