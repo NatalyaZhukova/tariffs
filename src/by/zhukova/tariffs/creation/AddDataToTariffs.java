@@ -31,7 +31,7 @@ public class AddDataToTariffs {
 		return tariff;
 	}
 	
-	public static TariffWithIncludedServices addDataWithIncludedServices(TariffWithIncludedServices tariff) {
+	public static TariffWithInclServices addDataWithIncludedServices(TariffWithInclServices tariff) {
 		addDataWithoutIncludedServices(tariff);
 		tariff.setTariffName("Tariff with subscription fee");
 		try {

@@ -8,7 +8,7 @@ public class WithoutIncludedServicesFactory implements AbstractFactory {
 
 	@Override
 	public BasicTariff createTariff() {
-		BasicTariff tariff = new TariffWithoutIncludedServices();
+		BasicTariff tariff = new TariffWithoutIncServices();
 		AddDataToTariffs.addDataWithoutIncludedServices(tariff);
 		
 		return tariff;

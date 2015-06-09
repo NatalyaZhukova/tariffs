@@ -1,15 +1,15 @@
 package by.zhukova.tariffs.tariff;
 
-public class TariffWithoutIncludedServices extends BasicTariff {
+public class TariffWithoutIncServices extends BasicTariff {
 
 	private boolean hasNoIncludedServices;
 
-	public TariffWithoutIncludedServices() {
+	public TariffWithoutIncServices() {
 		super();
-		this.hasNoIncludedServices = true;
+		
 	}
 
-	public TariffWithoutIncludedServices(String tariffName, String tariffId,
+	public TariffWithoutIncServices(String tariffName, String tariffId,
 			int subscriptionFee, int innerCallPrice, int outerCallPrice,
 			int internationalCallPrice, int smsPrice, int basicInternetPrice,
 			int numberOfUsers) {
@@ -22,6 +22,9 @@ public class TariffWithoutIncludedServices extends BasicTariff {
 
 	public boolean getHasNoIncludedServices() {
 		return hasNoIncludedServices;
+	}
+	public void setHasNoIncludedServices(boolean check) {
+		this.hasNoIncludedServices = check;
 	}
 	
 	public String toString() {
@@ -44,10 +47,10 @@ public class TariffWithoutIncludedServices extends BasicTariff {
 		if (!super.equals(obj)) {
 			return false;
 		}
-		if (!(obj instanceof TariffWithoutIncludedServices)) {
+		if (!(obj instanceof TariffWithoutIncServices)) {
 			return false;
 		}
-		TariffWithoutIncludedServices other = (TariffWithoutIncludedServices) obj;
+		TariffWithoutIncServices other = (TariffWithoutIncServices) obj;
 		if (hasNoIncludedServices != other.hasNoIncludedServices) {
 			return false;
 		}

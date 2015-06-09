@@ -2,7 +2,7 @@ package by.zhukova.tariffs.tariff;
 
 import by.zhukova.tariffs.exception.LogicalException;
 
-public class InternationalTariff extends TariffWithIncludedServices {
+public class InternationalTariff extends TariffWithInclServices {
 
 	private int includedInternationalCalls;
 

@@ -105,8 +105,8 @@ public class SearchTariffs {
 
 		for (int i = 0; i < list.getListSize(); i++) {
 
-			if (list.getTariffByIndex(i) instanceof TariffWithIncludedServices) {
-				TariffWithIncludedServices tariff = (TariffWithIncludedServices) list
+			if (list.getTariffByIndex(i) instanceof TariffWithInclServices) {
+				TariffWithInclServices tariff = (TariffWithInclServices) list
 						.getTariffByIndex(i);
 				int includedInnerCalls = tariff.getIncludedInnerCalls();
 
@@ -126,8 +126,8 @@ public class SearchTariffs {
 
 		for (int i = 0; i < list.getListSize(); i++) {
 
-			if (list.getTariffByIndex(i) instanceof TariffWithIncludedServices) {
-				TariffWithIncludedServices tariff = (TariffWithIncludedServices) list
+			if (list.getTariffByIndex(i) instanceof TariffWithInclServices) {
+				TariffWithInclServices tariff = (TariffWithInclServices) list
 						.getTariffByIndex(i);
 				int includedOuterCalls = tariff.getIncludedOuterCalls();
 
@@ -147,8 +147,8 @@ public class SearchTariffs {
 
 		for (int i = 0; i < list.getListSize(); i++) {
 
-			if (list.getTariffByIndex(i) instanceof TariffWithIncludedServices) {
-				TariffWithIncludedServices tariff = (TariffWithIncludedServices) list
+			if (list.getTariffByIndex(i) instanceof TariffWithInclServices) {
+				TariffWithInclServices tariff = (TariffWithInclServices) list
 						.getTariffByIndex(i);
 				int includedSMS = tariff.getIncludedSMS();
 
@@ -167,8 +167,8 @@ public class SearchTariffs {
 
 		for (int i = 0; i < list.getListSize(); i++) {
 
-			if (list.getTariffByIndex(i) instanceof TariffWithIncludedServices) {
-				TariffWithIncludedServices tariff = (TariffWithIncludedServices) list
+			if (list.getTariffByIndex(i) instanceof TariffWithInclServices) {
+				TariffWithInclServices tariff = (TariffWithInclServices) list
 						.getTariffByIndex(i);
 				int includedTraffic = tariff.getIncludedTraffic();
 

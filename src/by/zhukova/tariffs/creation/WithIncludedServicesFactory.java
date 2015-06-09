@@ -6,8 +6,8 @@ public class WithIncludedServicesFactory implements AbstractFactory {
 
 	@Override
 	public BasicTariff createTariff() {
-		BasicTariff tariff = new TariffWithIncludedServices();
-		AddDataToTariffs.addDataWithIncludedServices((TariffWithIncludedServices)tariff);
+		BasicTariff tariff = new TariffWithInclServices();
+		AddDataToTariffs.addDataWithIncludedServices((TariffWithInclServices)tariff);
 	
 		return tariff;
 	}

@@ -1,7 +1,10 @@
 <?xml version = "1.0" encoding="UTF-8"?>
-
+<tariff-list xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.example.com/tariffs"
+xs:schemaLocation="http://www.example.com/tariffs mobileTariffs.xsd"
+>
 	<without-fee-tariff id="0001">
-	<name>Легко сказать</name>
+	<name>Легкий</name>
 	<in-call-price>399</in-call-price>
 	<out-call-price>599</out-call-price>
 	<int-call-price>2000</int-call-price>
@@ -9,7 +12,7 @@
 	<internet-price>1000</internet-price>
 	<num-of-users>7420</num-of-users>
 	<subscr-fee>0</subscr-fee>
-	<has-inc-services>false</has-inc-services>
+	<has-no-inc-services>true</has-no-inc-services>
 	</without-fee-tariff>
 	
 	<with-fee-tariff id="0002">
@@ -62,4 +65,19 @@
 	<inc-corp-calls>500</inc-corp-calls>
 	</corporate-tariff>
 	
-</tariffList>
+	<with-fee-tariff id="0005">
+	<name>Smart 500</name>
+	<in-call-price>99</in-call-price>
+	<out-call-price>599</out-call-price>
+	<int-call-price>2000</int-call-price>
+	<sms-price>200</sms-price>
+	<internet-price>1000</internet-price>
+	<num-of-users>6530</num-of-users>
+	<subscr-fee>49000</subscr-fee>
+	<inc-in-calls>500</inc-in-calls>
+	<inc-out-calls>200</inc-out-calls>
+	<inc-sms>0</inc-sms>
+	<inc-traffic>500</inc-traffic>
+	</with-fee-tariff>
+	
+</tariff-list>

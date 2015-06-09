@@ -2,18 +2,18 @@ package by.zhukova.tariffs.tariff;
 
 import by.zhukova.tariffs.exception.LogicalException;
 
-public class TariffWithIncludedServices extends BasicTariff {
+public class TariffWithInclServices extends BasicTariff {
 
 	private int includedInnerCalls;
 	private int includedOuterCalls;
 	private int includedSMS;
 	private int includedTraffic;
 
-	public TariffWithIncludedServices() {
+	public TariffWithInclServices() {
 
 	}
 
-	public TariffWithIncludedServices(String tariffName, String tariffId,
+	public TariffWithInclServices(String tariffName, String tariffId,
 			int subscriptionFee, int innerCallPrice, int outerCallPrice,
 			int internationalCallPrice, int smsPrice, int basicInternetPrice,
 			int numberOfUsers, int includedInnerCalls, int includedOuterCalls,
@@ -114,10 +114,10 @@ public class TariffWithIncludedServices extends BasicTariff {
 		if (!super.equals(obj)) {
 			return false;
 		}
-		if (!(obj instanceof TariffWithIncludedServices)) {
+		if (!(obj instanceof TariffWithInclServices)) {
 			return false;
 		}
-		TariffWithIncludedServices other = (TariffWithIncludedServices) obj;
+		TariffWithInclServices other = (TariffWithInclServices) obj;
 		if (includedInnerCalls != other.includedInnerCalls) {
 			return false;
 		}

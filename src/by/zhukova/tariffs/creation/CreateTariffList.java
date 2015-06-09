@@ -16,7 +16,7 @@ public class CreateTariffList {
 			case 1:
 				creator.setAbstractFactory(new WithoutIncludedServicesFactory());
 				creator.action();
-				TariffWithoutIncludedServices tariff = (TariffWithoutIncludedServices) creator
+				TariffWithoutIncServices tariff = (TariffWithoutIncServices) creator
 						.getBasicTariff();
 				list.addNewTariff(tariff);
 				break;
@@ -24,7 +24,7 @@ public class CreateTariffList {
 			case 2:
 				creator.setAbstractFactory(new WithIncludedServicesFactory());
 				creator.action();
-				TariffWithIncludedServices tariff1 = (TariffWithIncludedServices) creator
+				TariffWithInclServices tariff1 = (TariffWithInclServices) creator
 						.getBasicTariff();
 				list.addNewTariff(tariff1);
 				break;

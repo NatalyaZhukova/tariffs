@@ -2,7 +2,7 @@ package by.zhukova.tariffs.tariff;
 
 import by.zhukova.tariffs.exception.LogicalException;
 
-public class CorporateTariff extends TariffWithIncludedServices {
+public class CorporateTariff extends TariffWithInclServices {
 
 	private int corporateCallPrice;
 	private int includedCorporateCalls;
