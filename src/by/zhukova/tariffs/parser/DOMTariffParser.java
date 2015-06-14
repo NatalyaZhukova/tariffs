@@ -16,7 +16,7 @@ import by.zhukova.tariffs.tariff.TariffWithoutIncServices;
 
 import java.io.*;
 
-public class DOMTariffParser {
+public class DOMTariffParser implements AbstractTariffParser {
 
 	static Logger logger = Logger.getLogger(DOMTariffParser.class);
 
@@ -51,7 +51,7 @@ public class DOMTariffParser {
 				Element element = (Element) childs;
 				String elementType = element.getNodeName();
 				switch (elementType) {
-				case "without-fee-tariff":
+				case TariffTypes.WITHOUT_SERVICES:
 					tariff = new TariffWithoutIncServices();
 					try {
 						buildWithoutServices(element, tariff);
@@ -61,7 +61,7 @@ public class DOMTariffParser {
 					}
 
 					break;
-				case "with-fee-tariff":
+				case TariffTypes.WITH_SERVICES:
 					tariff = new TariffWithInclServices();
 					try {
 						buildWithServices(element, tariff);
@@ -71,7 +71,7 @@ public class DOMTariffParser {
 					}
 
 					break;
-				case "international-tariff":
+				case TariffTypes.INTERNATIONAL:
 					tariff = new InternationalTariff();
 					try {
 						buildInternTariff(element, tariff);
@@ -81,7 +81,7 @@ public class DOMTariffParser {
 					}
 
 					break;
-				case "corporate-tariff":
+				case TariffTypes.CORPORATE:
 					tariff = new CorporateTariff();
 					try {
 						buildCorpTariff(element, tariff);
@@ -94,7 +94,6 @@ public class DOMTariffParser {
 
 				default:
 					logger.error("Unknown type of tariff");
-					break;
 				}
 
 			}
@@ -113,27 +112,29 @@ public class DOMTariffParser {
 	private void buildBasicPart(Element element, BasicTariff tariff)
 			throws NumberFormatException, LogicalException {
 
-		if (element.getAttribute("id") != null) {
+		if (element != null) {
 			tariff.setTariffId(element.getAttribute("id"));
+			tariff.setTariffName(getElementTextContent(element,
+					TariffFields.NAME));
+			tariff.setSubscriptionFee(Integer.parseInt(getElementTextContent(
+					element, TariffFields.SUBSCR_FEE)));
+			tariff.setInnerCallPrice(Integer.parseInt(getElementTextContent(
+					element, TariffFields.IN_CALL_PRICE)));
+			tariff.setOuterCallPrice(Integer.parseInt(getElementTextContent(
+					element, TariffFields.OUT_CALL_PRICE)));
+			tariff.setSmsPrice(Integer.parseInt(getElementTextContent(element,
+					TariffFields.SMS_PRICE)));
+			tariff.setBasicInternetPrice(Integer
+					.parseInt(getElementTextContent(element,
+							TariffFields.INTERNET_PRICE)));
+			tariff.setInternationalCallPrice(Integer
+					.parseInt(getElementTextContent(element,
+							TariffFields.INT_CALL_PRICE)));
+			tariff.setNumberOfUsers(Integer.parseInt(getElementTextContent(
+					element, TariffFields.USERS)));
 		} else {
-			throw new LogicalException("ID can't be null");
+			throw new LogicalException("element can't be null");
 		}
-
-		tariff.setTariffName(getElementTextContent(element, "name"));
-		tariff.setSubscriptionFee(Integer.parseInt(getElementTextContent(
-				element, "subscr-fee")));
-		tariff.setInnerCallPrice(Integer.parseInt(getElementTextContent(
-				element, "in-call-price")));
-		tariff.setOuterCallPrice(Integer.parseInt(getElementTextContent(
-				element, "out-call-price")));
-		tariff.setSmsPrice(Integer.parseInt(getElementTextContent(element,
-				"sms-price")));
-		tariff.setBasicInternetPrice(Integer.parseInt(getElementTextContent(
-				element, "internet-price")));
-		tariff.setInternationalCallPrice(Integer
-				.parseInt(getElementTextContent(element, "int-call-price")));
-		tariff.setNumberOfUsers(Integer.parseInt(getElementTextContent(element,
-				"num-of-users")));
 	}
 
 	private void buildWithoutServices(Element element, BasicTariff tariff)
@@ -142,7 +143,7 @@ public class DOMTariffParser {
 		TariffWithoutIncServices thisTariff = (TariffWithoutIncServices) tariff;
 		thisTariff.setHasNoIncludedServices(Boolean
 				.parseBoolean(getElementTextContent(element,
-						"has-no-inc-services")));
+						TariffFields.HAS_NO_INC_SERVICES)));
 	}
 
 	private void buildWithServices(Element element, BasicTariff tariff)
@@ -150,13 +151,15 @@ public class DOMTariffParser {
 		buildBasicPart(element, tariff);
 		TariffWithInclServices thisTariff = (TariffWithInclServices) tariff;
 		thisTariff.setIncludedInnerCalls(Integer
-				.parseInt(getElementTextContent(element, "inc-in-calls")));
+				.parseInt(getElementTextContent(element,
+						TariffFields.INC_IN_CALLS)));
 		thisTariff.setIncludedOuterCalls(Integer
-				.parseInt(getElementTextContent(element, "inc-out-calls")));
+				.parseInt(getElementTextContent(element,
+						TariffFields.INC_OUT_CALLS)));
 		thisTariff.setIncludedSMS(Integer.parseInt(getElementTextContent(
-				element, "inc-sms")));
+				element, TariffFields.INC_SMS)));
 		thisTariff.setIncludedTraffic(Integer.parseInt(getElementTextContent(
-				element, "inc-traffic")));
+				element, TariffFields.INC_TRAFFIC)));
 	}
 
 	private void buildCorpTariff(Element element, BasicTariff tariff)
@@ -164,9 +167,11 @@ public class DOMTariffParser {
 		buildWithServices(element, tariff);
 		CorporateTariff thisTariff = (CorporateTariff) tariff;
 		thisTariff.setCorporateCallPrice(Integer
-				.parseInt(getElementTextContent(element, "corp-call-price")));
+				.parseInt(getElementTextContent(element,
+						TariffFields.CORP_CALL_PRICE)));
 		thisTariff.setIncludedCorporateCalls(Integer
-				.parseInt(getElementTextContent(element, "inc-corp-calls")));
+				.parseInt(getElementTextContent(element,
+						TariffFields.INC_CORP_CALLS)));
 
 	}
 
@@ -175,7 +180,8 @@ public class DOMTariffParser {
 		buildWithServices(element, tariff);
 		InternationalTariff thisTariff = (InternationalTariff) tariff;
 		thisTariff.setIncludedInternationalCalls(Integer
-				.parseInt(getElementTextContent(element, "inc-int-calls")));
+				.parseInt(getElementTextContent(element,
+						TariffFields.INC_INT_CALLS)));
 
 	}
 }

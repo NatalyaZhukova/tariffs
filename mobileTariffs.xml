@@ -3,6 +3,7 @@
 xmlns="http://www.example.com/tariffs"
 xs:schemaLocation="http://www.example.com/tariffs mobileTariffs.xsd"
 >
+	
 	<without-fee-tariff id="0001">
 	<name>Легкий</name>
 	<in-call-price>399</in-call-price>
@@ -14,6 +15,23 @@ xs:schemaLocation="http://www.example.com/tariffs mobileTariffs.xsd"
 	<subscr-fee>0</subscr-fee>
 	<has-no-inc-services>true</has-no-inc-services>
 	</without-fee-tariff>
+		
+	<with-fee-tariff id="0005">
+	<name>Smart 500</name>
+	<in-call-price>99</in-call-price>
+	<out-call-price>599</out-call-price>
+	<int-call-price>2000</int-call-price>
+	<sms-price>200</sms-price>
+	<internet-price>1000</internet-price>
+	<num-of-users>6530</num-of-users>
+	<subscr-fee>69000</subscr-fee>
+	<inc-in-calls>500</inc-in-calls>
+	<inc-out-calls>200</inc-out-calls>
+	<inc-sms>0</inc-sms>
+	<inc-traffic>500</inc-traffic>
+	</with-fee-tariff>
+	
+	
 	
 	<with-fee-tariff id="0002">
 	<name>Отличный</name>
@@ -65,19 +83,18 @@ xs:schemaLocation="http://www.example.com/tariffs mobileTariffs.xsd"
 	<inc-corp-calls>500</inc-corp-calls>
 	</corporate-tariff>
 	
-	<with-fee-tariff id="0005">
-	<name>Smart 500</name>
-	<in-call-price>99</in-call-price>
+	
+	
+	<without-fee-tariff id="0006">
+	<name>Легкий 2</name>
+	<in-call-price>399</in-call-price>
 	<out-call-price>599</out-call-price>
 	<int-call-price>2000</int-call-price>
 	<sms-price>200</sms-price>
 	<internet-price>1000</internet-price>
-	<num-of-users>6530</num-of-users>
-	<subscr-fee>49000</subscr-fee>
-	<inc-in-calls>500</inc-in-calls>
-	<inc-out-calls>200</inc-out-calls>
-	<inc-sms>0</inc-sms>
-	<inc-traffic>500</inc-traffic>
-	</with-fee-tariff>
+	<num-of-users>7420</num-of-users>
+	<subscr-fee>0</subscr-fee>
+	<has-no-inc-services>true</has-no-inc-services>
+	</without-fee-tariff>
 	
 </tariff-list>
